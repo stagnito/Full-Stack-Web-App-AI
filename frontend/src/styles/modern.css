@@ -1,0 +1,880 @@
+/* modern.css - colorful rounded theme for the app */
+:root {
+    --bg: linear-gradient(180deg, #fbf8ff 0%, #f0f9ff 100%);
+    --card: rgba(255, 255, 255, 0.94);
+    --muted: #6b7280;
+    --violet: #7c3aed;
+    --teal: #06b6d4;
+    --accent-grad: linear-gradient(90deg, var(--violet), var(--teal));
+    --accent-glow: 0 18px 48px rgba(124, 58, 237, 0.12);
+    --border: rgba(2, 6, 23, 0.04);
+    --radius: 14px;
+    --shadow-sm: 0 6px 18px rgba(2, 6, 23, 0.06);
+    --shadow-md: 0 22px 60px rgba(2, 6, 23, 0.08);
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: #071133;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+.app-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+.fade-in {
+    animation: fadeInUp 420ms cubic-bezier(.2, .9, .2, 1) both
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.995)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+/* Cards */
+.centered-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 255, 0.92));
+    backdrop-filter: blur(6px) saturate(120%);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 28px;
+    margin: 36px auto;
+    max-width: 780px;
+    border: 1px solid rgba(255, 255, 255, 0.5)
+}
+
+.card-title {
+    margin-bottom: 8px;
+    font-weight: 700
+}
+
+/* Buttons */
+.primary-btn {
+    background: var(--accent-grad) !important;
+    color: #fff !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    box-shadow: var(--accent-glow);
+    transition: transform 180ms, box-shadow 180ms
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 28px 72px rgba(124, 58, 237, 0.14)
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.78) !important;
+    color: #243b55 !important;
+    border: 1px solid rgba(2, 6, 23, 0.06) !important;
+    padding: 8px 12px !important;
+    border-radius: 12px !important
+}
+
+/* Forms */
+.form-field input,
+.form-field textarea,
+.form-field select {
+    transition: box-shadow 200ms, border-color 200ms, transform 200ms;
+    border-radius: 10px
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba(124, 58, 237, 0.45)
+}
+
+/* Tables */
+.table-wrap {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: auto;
+    box-shadow: var(--shadow-sm)
+}
+
+.equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px
+}
+
+.equipment-table thead th {
+    text-align: left;
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #334155;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9));
+    border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+    position: sticky;
+    top: 0
+}
+
+.equipment-table tbody tr {
+    transition: background 180ms, transform 180ms, box-shadow 180ms
+}
+
+.equipment-table tbody tr.table-row:hover {
+    background: rgba(6, 182, 212, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.04)
+}
+
+.equipment-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(2, 6, 23, 0.04)
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.action-btn {
+    border-radius: 12px;
+    text-transform: none
+}
+
+.muted {
+    color: var(--muted)
+}
+
+/* Topbar */
+.topbar {
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.95), rgba(6, 182, 212, 0.95));
+    color: #fff !important;
+    box-shadow: 0 8px 30px rgba(6, 24, 50, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08)
+}
+
+.topbar .MuiToolbar-root {
+    min-height: 64px
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    padding: 8px 12px !important;
+    border-radius: 999px !important;
+    text-transform: none !important;
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.12)
+}
+
+/* MUI tweaks */
+.MuiButton-root {
+    border-radius: 12px !important
+}
+
+.MuiTextField-root .MuiInputBase-root {
+    border-radius: 10px
+}
+
+.MuiPaper-root {
+    border-radius: 12px
+}
+
+/* Utilities */
+.pulse {
+    animation: pulseAccent 2200ms ease-in-out infinite
+}
+
+@keyframes pulseAccent {
+    0% {
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06)
+    }
+
+    50% {
+        box-shadow: 0 24px 60px rgba(124, 58, 237, 0.12)
+    }
+
+    100% {
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06)
+    }
+}
+
+@media (max-width:720px) {
+    .centered-card {
+        margin: 18px;
+        padding: 18px
+    }
+
+    .equipment-table {
+        min-width: 600px
+    }
+}
+
+:root {
+    --bg: linear-gradient(180deg, #fbf8ff 0%, #f0f9ff 100%);
+    --card: rgba(255, 255, 255, 0.92);
+    --muted: #6b7280;
+    --violet: #7c3aed;
+    --teal: #06b6d4;
+    --orange: #fb923c;
+    --accent-grad: linear-gradient(90deg, var(--violet), var(--teal));
+    --accent-glow: 0 18px 48px rgba(124, 58, 237, 0.12);
+    --border: rgba(2, 6, 23, 0.04);
+    --success: #10b981;
+    --danger: #ef4444;
+    --radius: 14px;
+    /* smoother edges */
+    --glass: rgba(255, 255, 255, 0.6);
+    --shadow-sm: 0 6px 18px rgba(2, 6, 23, 0.06);
+    --shadow-md: 0 22px 60px rgba(2, 6, 23, 0.08);
+}
+
+/* Page baseline */
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: #071133;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+/* App container */
+.app-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.fade-in {
+    animation: fadeInUp 420ms cubic-bezier(.2, .9, .2, 1) both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.995);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Centered cards / forms */
+.centered-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 255, 0.92));
+    backdrop-filter: blur(6px) saturate(120%);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 28px;
+    margin: 36px auto;
+    max-width: 780px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-title {
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+/* Buttons */
+.primary-btn {
+    background: var(--accent-grad) !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    box-shadow: var(--accent-glow);
+    transition: transform 180ms cubic-bezier(.2, .9, .2, 1), box-shadow 180ms;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 28px 72px rgba(124, 58, 237, 0.14);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.75) !important;
+    color: #243b55 !important;
+    border: 1px solid rgba(2, 6, 23, 0.06) !important;
+    padding: 8px 12px !important;
+    border-radius: 12px !important;
+}
+
+/* Form input focus */
+.form-field input,
+.form-field textarea,
+.form-field select {
+    transition: box-shadow 200ms cubic-bezier(.2, .9, .2, 1), border-color 200ms, transform 200ms;
+    border-radius: 10px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba(124, 58, 237, 0.45);
+}
+
+/* Tables */
+.table-wrap {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 255, 0.9));
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: auto;
+    box-shadow: var(--shadow-sm);
+}
+
+.equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+}
+
+.equipment-table thead th {
+    text-align: left;
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #334155;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9));
+    border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+    position: sticky;
+    top: 0;
+}
+
+.equipment-table tbody tr {
+    transition: background 180ms cubic-bezier(.2, .9, .2, 1), transform 180ms, box-shadow 180ms;
+}
+
+.equipment-table tbody tr.table-row:hover {
+    background: rgba(6, 182, 212, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.04);
+}
+
+.equipment-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-btn {
+    border-radius: 12px;
+    text-transform: none;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* AppBar / Navigation styles */
+.topbar {
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.95), rgba(6, 182, 212, 0.95));
+    color: white !important;
+    box-shadow: 0 8px 30px rgba(6, 24, 50, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar .MuiToolbar-root {
+    min-height: 64px;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    padding: 8px 12px !important;
+    border-radius: 999px !important;
+    text-transform: none !important;
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.12);
+}
+
+/* Make MUI components follow the theme more closely */
+.MuiButton-root {
+    border-radius: 12px !important;
+}
+
+.MuiTextField-root .MuiInputBase-root {
+    border-radius: 10px;
+}
+
+.MuiPaper-root {
+    border-radius: 12px;
+}
+
+/* subtle accent pulse for call-to-action */
+.pulse {
+    animation: pulseAccent 2200ms ease-in-out infinite;
+}
+
+@keyframes pulseAccent {
+    0% {
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06);
+    }
+
+    50% {
+        box-shadow: 0 24px 60px rgba(124, 58, 237, 0.12);
+    }
+
+    100% {
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06);
+    }
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+    .centered-card {
+        margin: 18px;
+        padding: 18px;
+    }
+
+    .equipment-table {
+        min-width: 600px;
+    }
+}
+
+/* Page baseline */
+html,
+:root {
+    /* Colorful world-class palette */
+    --bg: linear-gradient(180deg, #fbf8ff 0%, #f0f9ff 100%);
+    --card: rgba(255, 255, 255, 0.92);
+    --muted: #6b7280;
+    --violet: #7c3aed;
+    --teal: #06b6d4;
+    --orange: #fb923c;
+    --accent-grad: linear-gradient(90deg, var(--violet), var(--teal));
+    --accent-glow: 0 18px 48px rgba(124, 58, 237, 0.12);
+    --border: rgba(2, 6, 23, 0.04);
+    --success: #10b981;
+    --danger: #ef4444;
+    --radius: 14px;
+    /* smoother edges */
+    --glass: rgba(255, 255, 255, 0.6);
+    --shadow-sm: 0 6px 18px rgba(2, 6, 23, 0.06);
+    --shadow-md: 0 22px 60px rgba(2, 6, 23, 0.08);
+}
+
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: #0f172a;
+
+    body {
+        background: var(--bg);
+        color: #071133;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
+    }
+
+    font-family: Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .fade-in {
+        animation: fadeInUp 420ms cubic-bezier(.2, .9, .2, 1) both;
+    }
+
+    line-height: 1.4;
+}
+
+/* Root app container with subtle entrance */
+.app-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.995);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 360ms ease both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+
+        .centered-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 255, 0.92));
+            backdrop-filter: blur(6px) saturate(120%);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 28px;
+            margin: 36px auto;
+            max-width: 780px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    }
+
+
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+
+        .card-title {
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+
+        }
+    }
+}
+
+/* Card style for centered forms */
+.centered-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+
+    .primary-btn {
+        background: var(--accent-grad) !important;
+        color: white !important;
+        padding: 10px 16px !important;
+        border-radius: 12px !important;
+        box-shadow: var(--accent-glow);
+        transition: transform 180ms cubic-bezier(.2, .9, .2, 1), box-shadow 180ms;
+    }
+
+    padding: 28px;
+    margin: 32px auto;
+    max-width: 720px;
+    border: 1px solid var(--border);
+
+    .primary-btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 28px 72px rgba(124, 58, 237, 0.14);
+    }
+}
+
+.card-title {
+    margin-bottom: 8px;
+    font-weight: 600;
+
+    .secondary-btn {
+        background: rgba(255, 255, 255, 0.75) !important;
+        color: #243b55 !important;
+        border: 1px solid rgba(2, 6, 23, 0.06) !important;
+        padding: 8px 12px !important;
+        border-radius: 12px !important;
+    }
+}
+
+/* Buttons */
+.primary-btn {
+    background: linear-gradient(180deg, var(--accent), var(--accent-600));
+    color: white !important;
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+        transition: box-shadow 200ms cubic-bezier(.2, .9, .2, 1), border-color 200ms, transform 200ms;
+        border-radius: 10px;
+    }
+
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+    transition: transform 160ms ease,
+    box-shadow 160ms ease,
+    opacity 120ms ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba(124, 58, 237, 0.45);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.16);
+}
+
+.secondary-btn {
+    background: transparent !important;
+
+    .table-wrap {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 255, 0.9));
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        overflow: auto;
+        box-shadow: var(--shadow-sm);
+    }
+
+    border: 1px solid rgba(15, 23, 42, 0.06) !important;
+    color: var(--accent-600) !important;
+}
+
+/* Forms */
+.form-field input,
+.form-field textarea,
+.form-field select {
+    transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease;
+    border-radius: 8px;
+
+    .equipment-table thead th {
+        text-align: left;
+        padding: 14px 18px;
+        font-weight: 700;
+        color: #334155;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9));
+        border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+        position: sticky;
+        top: 0;
+    }
+}
+
+.form-field input:focus,
+.equipment-table tbody tr {
+    transition: background 180ms cubic-bezier(.2, .9, .2, 1), transform 180ms, box-shadow 180ms;
+}
+
+.form-field textarea:focus,
+.form-field select:focus {
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
+
+    .equipment-table tbody tr.table-row:hover {
+        background: rgba(6, 182, 212, 0.04);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.04);
+    }
+}
+
+/* Tables */
+.table-wrap {
+    .equipment-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(2, 6, 23, 0.04);
+    }
+
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: auto;
+    box-shadow: var(--shadow-sm);
+
+    .actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+.equipment-table {
+    width: 100%;
+
+    .action-btn {
+        border-radius: 12px;
+        text-transform: none;
+    }
+
+    border-collapse: collapse;
+    min-width: 720px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.equipment-table thead th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(250, 250, 251, 1);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+
+    @media (max-width: 720px) {
+        .centered-card {
+            margin: 18px;
+            padding: 18px;
+        }
+
+        .equipment-table {
+            min-width: 600px;
+        }
+    }
+
+    /* AppBar / Navigation styles */
+    .topbar {
+        background: linear-gradient(90deg, rgba(124, 58, 237, 0.95), rgba(6, 182, 212, 0.95));
+        color: white !important;
+        box-shadow: 0 8px 30px rgba(6, 24, 50, 0.12);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar .MuiToolbar-root {
+        min-height: 64px;
+    }
+
+    .nav-btn {
+        background: rgba(255, 255, 255, 0.12) !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        padding: 8px 12px !important;
+        border-radius: 999px !important;
+        /* pill */
+        text-transform: none !important;
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.18) !important;
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.12);
+    }
+
+    /* Make MUI components follow the theme more closely */
+    .MuiButton-root {
+        border-radius: 12px !important;
+    }
+
+    .MuiTextField-root .MuiInputBase-root {
+        border-radius: 10px;
+    }
+
+    .MuiPaper-root {
+        border-radius: 12px;
+    }
+
+    /* subtle accent pulse for call-to-action */
+    .pulse {
+        animation: pulseAccent 2200ms ease-in-out infinite;
+    }
+
+    @keyframes pulseAccent {
+        0% {
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06);
+        }
+
+        50% {
+            box-shadow: 0 24px 60px rgba(124, 58, 237, 0.12);
+        }
+
+        100% {
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.06);
+        }
+    }
+
+    top: 0;
+}
+
+.equipment-table tbody tr {
+    transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.equipment-table tbody tr.table-row:hover {
+    background: var(--accent-100);
+    transform: translateY(-3px);
+}
+
+.equipment-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* actions */
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-btn {
+    border-radius: 8px;
+    text-transform: none;
+}
+
+/* small utilities */
+.muted {
+    color: var(--muted);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+    .centered-card {
+        margin: 18px;
+        padding: 18px;
+    }
+
+    .equipment-table {
+        min-width: 600px;
+    }
+}

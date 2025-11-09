@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "School Equipment Lending API",
+    "description": "API for managing school equipment lending system",
+    "version": "1.0.0"
+  },
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Register a new user",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "username": {"type": "string"},
+              "email": {"type": "string"},
+              "password": {"type": "string"},
+              "role": {"type": "string", "enum": ["student", "staff", "admin"]}
+            }
+          }
+        }],
+        "responses": {
+          "201": {"description": "User created successfully"},
+          "400": {"description": "Username or email already exists"}
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Login user",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "username": {"type": "string"},
+              "password": {"type": "string"}
+            }
+          }
+        }],
+        "responses": {
+          "200": {"description": "Login successful"},
+          "401": {"description": "Invalid credentials"}
+        }
+      }
+    },
+    "/equipment": {
+      "get": {
+        "tags": ["Equipment"],
+        "summary": "Get all equipment",
+        "parameters": [{
+          "name": "category",
+          "in": "query",
+          "type": "string",
+          "required": false
+        }],
+        "responses": {
+          "200": {"description": "List of equipment"}
+        }
+      },
+      "post": {
+        "tags": ["Equipment"],
+        "summary": "Add new equipment",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "category": {"type": "string"},
+              "condition": {"type": "string"},
+              "quantity": {"type": "integer"}
+            }
+          }
+        }],
+        "responses": {
+          "201": {"description": "Equipment added successfully"}
+        },
+        "security": [{"Bearer": []}]
+      }
+    },
+    "/borrow-requests": {
+      "get": {
+        "tags": ["Borrowing"],
+        "summary": "Get all borrow requests",
+        "responses": {
+          "200": {"description": "List of borrow requests"}
+        },
+        "security": [{"Bearer": []}]
+      },
+      "post": {
+        "tags": ["Borrowing"],
+        "summary": "Create new borrow request",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "equipment_id": {"type": "integer"},
+              "quantity": {"type": "integer"},
+              "borrow_date": {"type": "string", "format": "date"},
+              "return_date": {"type": "string", "format": "date"}
+            }
+          }
+        }],
+        "responses": {
+          "201": {"description": "Borrow request created successfully"},
+          "400": {"description": "Not enough items available or scheduling conflict"}
+        },
+        "security": [{"Bearer": []}]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
